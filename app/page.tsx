@@ -3,6 +3,8 @@
 import dynamic from "next/dynamic";
 import TopNav from "@/components/TopNav";
 import Program from "@/components/Program";
+import Gallery from "@/components/Gallery";
+import Tributes from "@/components/Tributes";
 import { useState } from "react";
 
 const Brochure = dynamic(() => import("@/components/Brochure"), {
@@ -18,6 +20,8 @@ export default function Home() {
       <TopNav active={activeTab} setActive={setActiveTab} />
       {activeTab === "brochure" && <Brochure />}
       {activeTab === "program" && <Program />}
+      {activeTab === "gallery" && <Gallery />}
+      {activeTab === "tributes" && <Tributes />}
     </main>
   );
 }
