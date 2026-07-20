@@ -3,7 +3,8 @@
 import React, { useState, useEffect } from "react";
 import { Document, Page, pdfjs } from "react-pdf";
 // @ts-ignore
-import HTMLFlipBook from "react-pageflip";
+import HTMLFlipBookType from "react-pageflip";
+const FlipBook = HTMLFlipBookType as any;
 import { motion } from "framer-motion";
 import { Hand } from "lucide-react";
 import 'react-pdf/dist/Page/AnnotationLayer.css';
@@ -55,7 +56,7 @@ export default function Brochure() {
         error={<div className="text-red-400 font-serif text-sm">Error loading brochure. Please ensure /public/brochure.pdf exists.</div>}
       >
         {numPages && (
-          <HTMLFlipBook
+          <FlipBook
             width={pageWidth}
             height={pageHeight}
             size="fixed"
@@ -87,7 +88,7 @@ export default function Brochure() {
                 />
               </PageWrapper>
             ))}
-          </HTMLFlipBook>
+          </FlipBook>
         )}
       </Document>
       
