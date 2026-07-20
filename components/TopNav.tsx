@@ -12,9 +12,8 @@ const navItems = [
   { id: "tributes", label: "Tributes", icon: Heart },
 ];
 
-export default function TopNav() {
+export default function TopNav({ active, setActive }: { active: string, setActive: (val: string) => void }) {
   const [isOpen, setIsOpen] = useState(false);
-  const [active, setActive] = useState("brochure");
 
   return (
     <>

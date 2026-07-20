@@ -2,6 +2,8 @@
 
 import dynamic from "next/dynamic";
 import TopNav from "@/components/TopNav";
+import Program from "@/components/Program";
+import { useState } from "react";
 
 const Brochure = dynamic(() => import("@/components/Brochure"), {
   ssr: false,
@@ -9,10 +11,13 @@ const Brochure = dynamic(() => import("@/components/Brochure"), {
 });
 
 export default function Home() {
+  const [activeTab, setActiveTab] = useState("brochure");
+
   return (
     <main className="relative min-h-screen bg-black flex flex-col">
-      <Brochure />
-      <TopNav />
+      <TopNav active={activeTab} setActive={setActiveTab} />
+      {activeTab === "brochure" && <Brochure />}
+      {activeTab === "program" && <Program />}
     </main>
   );
 }
