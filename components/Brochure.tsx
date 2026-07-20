@@ -47,7 +47,7 @@ export default function Brochure() {
   const pageHeight = pageWidth * 1.414; // A4 aspect ratio
 
   return (
-    <div className="flex flex-col items-center justify-center w-full min-h-screen pt-4 pb-32 bg-transparent relative">
+    <div className="flex flex-col items-center justify-center w-full min-h-screen pt-20 pb-12 bg-transparent relative">
       <Document
         file="/brochure.pdf"
         onLoadSuccess={onDocumentLoadSuccess}
@@ -84,6 +84,12 @@ export default function Brochure() {
                   width={pageWidth}
                   renderAnnotationLayer={false}
                   renderTextLayer={false}
+                  devicePixelRatio={Math.min(typeof window !== 'undefined' ? window.devicePixelRatio : 1, 1.5)}
+                  loading={
+                    <div className="flex items-center justify-center w-full h-full bg-zinc-100/50">
+                      <div className="w-6 h-6 border-2 border-zinc-300 border-t-zinc-600 rounded-full animate-spin"></div>
+                    </div>
+                  }
                   className="w-full h-full object-contain"
                 />
               </PageWrapper>
@@ -91,16 +97,16 @@ export default function Brochure() {
           </FlipBook>
         )}
       </Document>
-      
+
       {numPages && (
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1, duration: 0.8 }}
-          className="absolute bottom-28 flex items-center space-x-2 text-zinc-500/80 font-serif"
+          className="absolute bottom-8 flex items-center space-x-2 text-zinc-500/80 font-serif"
         >
           <Hand size={16} className="animate-pulse" />
-          <span className="text-xs tracking-widest uppercase">Swipe to read</span>
+          <span className="">Tap foward and backward to flip pages!</span>
         </motion.div>
       )}
     </div>

@@ -1,7 +1,7 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import BottomNav from "@/components/BottomNav";
+import TopNav from "@/components/TopNav";
 
 const Brochure = dynamic(() => import("@/components/Brochure"), {
   ssr: false,
@@ -12,7 +12,7 @@ export default function Home() {
   return (
     <main className="relative min-h-screen bg-black flex flex-col">
       <Brochure />
-      <BottomNav />
+      <TopNav />
     </main>
   );
 }
