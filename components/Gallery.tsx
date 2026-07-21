@@ -34,7 +34,7 @@ export default function Gallery() {
         Photo Gallery
       </motion.h1>
 
-      <div className="max-w-md mx-auto space-y-8">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {images.map((img, index) => (
           <motion.div
             key={img.id}

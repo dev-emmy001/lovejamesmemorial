@@ -27,21 +27,9 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">
-        {/* Desktop fallback */}
-        <div className="hidden md:flex flex-1 flex-col items-center justify-center px-6 text-center bg-zinc-50">
-          <div className="max-w-lg space-y-6">
-            <h1 className="font-serif text-4xl font-light text-zinc-900 tracking-wide">
-              Designed for Mobile
-            </h1>
-            <p className="text-zinc-600 text-lg leading-relaxed">
-              This memorial site is crafted specifically as an intimate experience for mobile devices. Please open this link on your smartphone to view it.
-            </p>
-          </div>
-        </div>
-
-        {/* Mobile application children */}
-        <div className="flex-1 flex flex-col md:hidden">
+      <body className="min-h-full flex flex-col bg-black">
+        {/* Application children */}
+        <div className="flex-1 flex flex-col">
           {children}
         </div>
       </body>
