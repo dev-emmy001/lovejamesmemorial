@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 
-export default function Hero() {
+export default function Hero({ onNavigate }: { onNavigate?: (id: string) => void }) {
   return (
     <motion.div
       initial={{ opacity: 0, y: -20 }}
@@ -89,27 +89,35 @@ export default function Hero() {
       <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2 w-full max-w-md">
         <button
           onClick={() => {
-            const el = document.getElementById("tributes");
-            if (el) {
-              const yOffset = -80;
-              const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
-              window.scrollTo({ top: y, behavior: "smooth" });
+            if (onNavigate) {
+              onNavigate("tributes");
+            } else {
+              const el = document.getElementById("tributes");
+              if (el) {
+                const yOffset = -80;
+                const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
+                window.scrollTo({ top: y, behavior: "smooth" });
+              }
             }
           }}
-          className="w-full sm:w-auto px-8 py-3 rounded-full bg-[#b5122c] hover:bg-[#7d0d1f] text-[#fffaf0] text-xs font-bold uppercase tracking-widest shadow-lg shadow-[#b5122c]/20 transition-all"
+          className="w-full sm:w-auto px-8 py-3 rounded-full bg-[#b5122c] hover:bg-[#7d0d1f] text-[#fffaf0] text-xs font-bold uppercase tracking-widest shadow-lg shadow-[#b5122c]/20 transition-all cursor-pointer"
         >
           Share a Tribute
         </button>
         <button
           onClick={() => {
-            const el = document.getElementById("program");
-            if (el) {
-              const yOffset = -80;
-              const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
-              window.scrollTo({ top: y, behavior: "smooth" });
+            if (onNavigate) {
+              onNavigate("program");
+            } else {
+              const el = document.getElementById("program");
+              if (el) {
+                const yOffset = -80;
+                const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
+                window.scrollTo({ top: y, behavior: "smooth" });
+              }
             }
           }}
-          className="w-full sm:w-auto px-8 py-3 rounded-full border-2 border-[#d3a24a] hover:bg-[#d3a24a]/10 text-[#7d0d1f] text-xs font-bold uppercase tracking-widest transition-all"
+          className="w-full sm:w-auto px-8 py-3 rounded-full border-2 border-[#d3a24a] hover:bg-[#d3a24a]/10 text-[#7d0d1f] text-xs font-bold uppercase tracking-widest transition-all cursor-pointer"
         >
           Order of Service
         </button>

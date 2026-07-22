@@ -2,8 +2,9 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence, Variants } from "framer-motion";
-import { Loader2, CheckCircle2, Heart } from "lucide-react";
+import { Loader2, CheckCircle2, Heart, ChevronDown, ChevronUp } from "lucide-react";
 import { supabase } from "@/lib/supabase";
+import { staticTributesData } from "@/lib/tributesData";
 
 const containerVariants: Variants = {
   hidden: { opacity: 0 },
@@ -30,49 +31,8 @@ type Tribute = {
   message: string;
 };
 
-const initialTributes: Tribute[] = [
-  {
-    id: "init-1",
-    name: "Elder Godwin James",
-    relationship: "Son",
-    date: "02 Aug 2026",
-    message: "Rest peacefully in the Lord, Mum. Your love will forever live in our hearts. We are so grateful for the life you lived."
-  },
-  {
-    id: "init-2",
-    name: "Stella Chioma",
-    relationship: "Family",
-    date: "01 Aug 2026",
-    message: "Adaibe, till we meet again. We miss you every single day, but we take comfort knowing you are with the Lord."
-  },
-  {
-    id: "init-3",
-    name: "Precious Ake",
-    relationship: "Friend",
-    date: "31 Jul 2026",
-    message: "Mrs. Love, thank you for everything. I will carry your lessons with me for the rest of my life. Rest well."
-  }
-];
-
-const featuredTributes = [
-  {
-    author: "Mr. Israel Chioma",
-    role: "Son",
-    title: "Tribute to My Lovely Mother",
-    message:
-      "To my lovely and generous sweet mother, Dada, as we all fondly called you. Death, oh death, you are wicked. Although you are a reality of life, your coming was untimely. The last time I met you, my lovely mother, you said nothing to me. Instead, you only shed tears. Deep within my heart, I felt that something was wrong. My only consolation is that you are resting in the Lord. Heaven has gained a beautiful soul, but we will miss you dearly. May your lovely and gentle soul continue to rest in the Lord until we meet to part no more. Rest in perfect peace, dear Mother. You will forever remain in our heart."
-  },
-  {
-    author: "Eld. Engr. Godwin James",
-    role: "Son",
-    title: "Tribute to Our Beloved Mother",
-    message:
-      "With gratitude to God, we celebrate the life of our beloved mother, a woman of unwavering faith, boundless love, and remarkable kindness. She was a devoted Christian whose life reflected the values of compassion, humility, and service to God and humanity. As a mother, she was caring, selfless, and ever-supportive."
-  }
-];
-
 export default function Tributes() {
-  const [tributes, setTributes] = useState<Tribute[]>(initialTributes);
+  const [tributes, setTributes] = useState<Tribute[]>([]);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [formData, setFormData] = useState({ name: "", relationship: "", message: "" });
@@ -100,7 +60,7 @@ export default function Tributes() {
           }),
           message: item.message
         }));
-        setTributes([...formattedData, ...initialTributes]);
+        setTributes(formattedData);
       }
     }
 
@@ -177,24 +137,31 @@ export default function Tributes() {
         <div className="space-y-6">
           <h2 className="text-[#b5122c] font-serif text-xl font-semibold flex items-center space-x-2 border-b border-[#b5122c]/20 pb-2">
             <Heart size={20} className="text-[#b5122c]" />
-            <span>Family Tributes</span>
+            <span>Family Tributes ({staticTributesData.length})</span>
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {featuredTributes.map((trib, idx) => (
+            {staticTributesData.map((trib) => (
               <motion.div
-                key={idx}
+                key={trib.id}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="bg-[#fffaf0] border border-[#d3a24a]/40 p-8 rounded-3xl space-y-4 relative overflow-hidden shadow-xl shadow-[#241611]/5"
+                className="bg-[#fffaf0] border border-[#d3a24a]/40 p-6 sm:p-8 rounded-3xl space-y-4 relative overflow-hidden shadow-xl shadow-[#241611]/5 flex flex-col justify-between"
               >
-                <h3 className="text-[#7d0d1f] font-serif text-lg font-semibold">{trib.title}</h3>
-                <p className="text-[#55423b] font-serif italic text-sm sm:text-base leading-relaxed">
-                  "{trib.message}"
-                </p>
-                <div className="pt-3 border-t border-[#d3a24a]/30">
-                  <p className="text-[#241611] font-semibold text-xs sm:text-sm">{trib.author}</p>
-                  <p className="text-[#b5122c] text-xs font-medium">{trib.role}</p>
+                <div className="space-y-3">
+                  <span className="inline-block text-[11px] font-bold uppercase tracking-wider text-[#b5122c] bg-[#b5122c]/10 px-3 py-1 rounded-full">
+                    {trib.relationship}
+                  </span>
+                  <div className="space-y-2">
+                    {trib.message.split("\n\n").map((para, idx) => (
+                      <p key={idx} className="text-[#55423b] font-serif italic text-sm sm:text-base leading-relaxed">
+                        "{para}"
+                      </p>
+                    ))}
+                  </div>
+                </div>
+                <div className="pt-4 border-t border-[#d3a24a]/30 mt-4">
+                  <p className="text-[#7d0d1f] font-serif font-bold text-base">{trib.name}</p>
                 </div>
               </motion.div>
             ))}

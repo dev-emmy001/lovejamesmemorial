@@ -1,11 +1,12 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { BookOpen, Image as ImageIcon, Calendar, Heart } from "lucide-react";
+import { BookOpen, Image as ImageIcon, Calendar, Heart, Home } from "lucide-react";
 import { useState } from "react";
 import Image from "next/image";
 
 const navItems = [
+  { id: "home", label: "Home", icon: Home },
   { id: "program", label: "Program", icon: Calendar },
   { id: "biography", label: "Biography", icon: BookOpen },
   { id: "gallery", label: "Gallery", icon: ImageIcon },
@@ -19,7 +20,7 @@ export default function TopNav({ active, setActive }: { active: string, setActiv
     <>
       <nav className="fixed top-0 left-0 right-0 z-50 flex justify-center bg-[#7d0d1f]/95 backdrop-blur-md border-b border-[#d3a24a]/30 shadow-lg shadow-[#100b09]/20">
         <div className="w-full max-w-7xl px-6 py-3.5 flex items-center justify-between">
-          <div className="flex items-center">
+          <button onClick={() => setActive("home")} className="flex items-center cursor-pointer hover:opacity-90 transition-opacity">
             <Image
               src="/logo.png"
               alt="Love James Memorial"
@@ -28,7 +29,7 @@ export default function TopNav({ active, setActive }: { active: string, setActiv
               className="object-contain "
               priority
             />
-          </div>
+          </button>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-3">
