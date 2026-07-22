@@ -130,27 +130,34 @@ export default function Program() {
   const [activeHymn, setActiveHymn] = useState<number | null>(null);
 
   return (
-    <div className="w-full min-h-screen pt-28 pb-20 px-6 bg-transparent text-zinc-200">
+    <div className="w-full min-h-screen pt-16 pb-20 px-6 bg-transparent text-[#241611]">
       <div className="max-w-4xl mx-auto space-y-16">
         
+        {/* Section Divider */}
+        <div className="flex items-center justify-center space-x-4 opacity-40 pt-4">
+          <div className="h-[1px] w-16 bg-[#b5122c]" />
+          <div className="w-2 h-2 rounded-full bg-[#d3a24a]" />
+          <div className="h-[1px] w-16 bg-[#b5122c]" />
+        </div>
+
         {/* Title */}
         <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} className="text-center">
-          <h1 className="text-4xl font-serif text-zinc-100 tracking-wide font-light mb-2">Order of Service</h1>
-          <p className="text-zinc-400 text-sm">Funeral & Interment Program for Late Deaconess Love James</p>
+          <h1 className="text-4xl font-serif text-[#7d0d1f] tracking-wide font-normal mb-2">Order of Service</h1>
+          <p className="text-[#55423b] text-sm">Funeral & Interment Program for Late Deaconess Love James</p>
         </motion.div>
 
         {/* Schedule Grid */}
         <div className="space-y-4">
-          <h2 className="text-[#FFE9B3] font-serif text-xl font-semibold flex items-center space-x-2">
-            <Calendar size={20} />
+          <h2 className="text-[#b5122c] font-serif text-xl font-semibold flex items-center space-x-2 border-b border-[#b5122c]/20 pb-2">
+            <Calendar size={20} className="text-[#b5122c]" />
             <span>Schedule of Events</span>
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {scheduleEvents.map((evt, idx) => (
-              <div key={idx} className="bg-zinc-900/60 border border-zinc-800/80 p-5 rounded-2xl">
-                <h3 className="text-zinc-100 font-medium text-base mb-1">{evt.title}</h3>
-                <p className="text-[#FFE9B3] text-xs font-mono mb-2">{evt.date}</p>
-                <p className="text-zinc-400 text-xs">{evt.location}</p>
+              <div key={idx} className="bg-[#fffaf0] border border-[#d3a24a]/40 p-5 rounded-2xl shadow-md shadow-[#241611]/5">
+                <h3 className="text-[#7d0d1f] font-semibold text-base mb-1">{evt.title}</h3>
+                <p className="text-[#b5122c] text-xs font-semibold uppercase tracking-wider mb-2">{evt.date}</p>
+                <p className="text-[#55423b] text-xs">{evt.location}</p>
               </div>
             ))}
           </div>
@@ -158,15 +165,15 @@ export default function Program() {
 
         {/* Officiating Ministers */}
         <div className="space-y-4">
-          <h2 className="text-[#FFE9B3] font-serif text-xl font-semibold flex items-center space-x-2">
-            <UserCheck size={20} />
+          <h2 className="text-[#b5122c] font-serif text-xl font-semibold flex items-center space-x-2 border-b border-[#b5122c]/20 pb-2">
+            <UserCheck size={20} className="text-[#b5122c]" />
             <span>Officiating Ministers</span>
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             {ministers.map((min, idx) => (
-              <div key={idx} className="bg-zinc-900/40 border border-zinc-800/60 p-4 rounded-xl">
-                <p className="text-zinc-200 text-sm font-medium">{min.name}</p>
-                <p className="text-zinc-500 text-xs">{min.title}</p>
+              <div key={idx} className="bg-[#fffaf0] border border-[#d3a24a]/30 p-4 rounded-xl shadow-sm">
+                <p className="text-[#241611] text-sm font-semibold">{min.name}</p>
+                <p className="text-[#55423b] text-xs">{min.title}</p>
               </div>
             ))}
           </div>
@@ -183,26 +190,26 @@ export default function Program() {
               variants={containerVariants}
               className="relative"
             >
-              <motion.h2 variants={itemVariants} className="text-2xl font-serif text-[#FFE9B3] mb-6 font-semibold border-b border-zinc-800 pb-2">
+              <motion.h2 variants={itemVariants} className="text-2xl font-serif text-[#7d0d1f] mb-6 font-semibold border-b border-[#b5122c]/20 pb-2">
                 {part.title}
               </motion.h2>
 
               {part.description && (
-                <motion.p variants={itemVariants} className="text-zinc-300 text-sm mb-6 bg-zinc-900/60 p-5 rounded-2xl border border-zinc-800/80">
+                <motion.p variants={itemVariants} className="text-[#55423b] text-sm mb-6 bg-[#fffaf0] p-5 rounded-2xl border border-[#d3a24a]/40 shadow-sm">
                   {part.description}
                 </motion.p>
               )}
 
               {part.items.length > 0 && (
-                <div className="relative border-l-2 border-zinc-800/80 ml-3 space-y-6 pb-2">
+                <div className="relative border-l-2 border-[#b5122c]/40 ml-3 space-y-6 pb-2">
                   {part.items.map((item, itemIndex) => (
                     <motion.div key={itemIndex} variants={itemVariants} className="relative pl-7">
-                      <div className="absolute -left-[7px] top-1.5 w-3 h-3 rounded-full bg-[#FFE9B3]/80 shadow-sm ring-4 ring-black" />
+                      <div className="absolute -left-[7px] top-1.5 w-3 h-3 rounded-full bg-[#b5122c] shadow-sm ring-4 ring-[#fbf1de]" />
                       <div className="flex space-x-4 items-start">
-                        <span className="text-xs font-bold text-zinc-500 mt-0.5 min-w-[20px]">
+                        <span className="text-xs font-bold text-[#d3a24a] mt-0.5 min-w-[20px]">
                           {(itemIndex + 1).toString().padStart(2, "0")}
                         </span>
-                        <p className="text-base text-zinc-200 leading-relaxed font-light">{item}</p>
+                        <p className="text-base text-[#241611] leading-relaxed font-normal">{item}</p>
                       </div>
                     </motion.div>
                   ))}
@@ -213,12 +220,12 @@ export default function Program() {
         </div>
 
         {/* Hymns Section */}
-        <div className="space-y-6 pt-6 border-t border-zinc-800/80">
+        <div className="space-y-6 pt-6 border-t border-[#b5122c]/20">
           <div className="flex items-center space-x-3">
-            <Music className="text-[#FFE9B3]" size={24} />
+            <Music className="text-[#b5122c]" size={24} />
             <div>
-              <h2 className="text-2xl font-serif text-zinc-100 font-light">Sung In Her Honour — Hymns</h2>
-              <p className="text-xs text-zinc-500">Tap any hymn to view its complete lyrics</p>
+              <h2 className="text-2xl font-serif text-[#7d0d1f] font-semibold">Sung In Her Honour — Hymns</h2>
+              <p className="text-xs text-[#55423b]">Tap any hymn to view its complete lyrics</p>
             </div>
           </div>
 
@@ -226,22 +233,22 @@ export default function Program() {
             {hymns.map((hymn, idx) => {
               const isOpen = activeHymn === idx;
               return (
-                <div key={idx} className="bg-zinc-900/50 border border-zinc-800/80 rounded-2xl overflow-hidden">
+                <div key={idx} className="bg-[#fffaf0] border border-[#d3a24a]/40 rounded-2xl overflow-hidden shadow-sm">
                   <button
                     onClick={() => setActiveHymn(isOpen ? null : idx)}
-                    className="w-full p-5 flex items-center justify-between text-left hover:bg-zinc-800/30 transition-colors"
+                    className="w-full p-5 flex items-center justify-between text-left hover:bg-[#7d0d1f]/5 transition-colors"
                   >
                     <div>
-                      <span className="text-xs font-mono uppercase tracking-widest text-[#FFE9B3]">{hymn.code}</span>
-                      <h3 className="text-lg font-serif text-zinc-200">{hymn.title}</h3>
+                      <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#b5122c]">{hymn.code}</span>
+                      <h3 className="text-lg font-serif text-[#241611] font-medium">{hymn.title}</h3>
                     </div>
-                    <ChevronDown className={`text-zinc-500 transition-transform ${isOpen ? "rotate-180" : ""}`} size={20} />
+                    <ChevronDown className={`text-[#7d0d1f] transition-transform ${isOpen ? "rotate-180" : ""}`} size={20} />
                   </button>
 
                   {isOpen && (
-                    <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }} className="px-5 pb-6 pt-2 space-y-4 border-t border-zinc-800/40">
+                    <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }} className="px-5 pb-6 pt-2 space-y-4 border-t border-[#d3a24a]/20 bg-[#7d0d1f]/5">
                       {hymn.verses.map((verse, vIdx) => (
-                        <p key={vIdx} className="text-zinc-300 text-sm font-serif italic whitespace-pre-line leading-relaxed">
+                        <p key={vIdx} className="text-[#55423b] text-sm font-serif italic whitespace-pre-line leading-relaxed">
                           {verse}
                         </p>
                       ))}

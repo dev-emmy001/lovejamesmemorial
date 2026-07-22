@@ -6,9 +6,9 @@ import { useState } from "react";
 import Image from "next/image";
 
 const navItems = [
+  { id: "program", label: "Program", icon: Calendar },
   { id: "biography", label: "Biography", icon: BookOpen },
   { id: "gallery", label: "Gallery", icon: ImageIcon },
-  { id: "program", label: "Program", icon: Calendar },
   { id: "tributes", label: "Tributes", icon: Heart },
 ];
 
@@ -17,21 +17,21 @@ export default function TopNav({ active, setActive }: { active: string, setActiv
 
   return (
     <>
-      <nav className="fixed top-0 left-0 right-0 z-50 flex justify-center bg-black/80 backdrop-blur-md border-b border-white/5">
-        <div className="w-full max-w-7xl px-6 py-4 flex items-center justify-between">
+      <nav className="fixed top-0 left-0 right-0 z-50 flex justify-center bg-[#7d0d1f]/95 backdrop-blur-md border-b border-[#d3a24a]/30 shadow-lg shadow-[#100b09]/20">
+        <div className="w-full max-w-7xl px-6 py-3.5 flex items-center justify-between">
           <div className="flex items-center">
             <Image
               src="/logo.png"
               alt="Love James Memorial"
               width={180}
               height={200}
-              className="object-contain"
+              className="object-contain "
               priority
             />
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-3">
             {navItems.map((item) => {
               const Icon = item.icon;
               const isActive = active === item.id;
@@ -39,12 +39,13 @@ export default function TopNav({ active, setActive }: { active: string, setActiv
                 <button
                   key={item.id}
                   onClick={() => setActive(item.id)}
-                  className={`group flex items-center space-x-2 transition-colors ${
-                    isActive ? "text-[#e6e2d8]" : "text-zinc-500 hover:text-zinc-300"
-                  }`}
+                  className={`group flex items-center space-x-2 px-4 py-2 rounded-full transition-all duration-300 ${isActive
+                      ? "bg-[#d3a24a] text-[#7d0d1f] font-semibold shadow-md shadow-black/20"
+                      : "text-[#fbf1de]/80 hover:text-white hover:bg-white/10"
+                    }`}
                 >
-                  <Icon size={18} strokeWidth={isActive ? 2 : 1.5} />
-                  <span className="text-sm font-medium tracking-widest uppercase">
+                  <Icon size={17} strokeWidth={isActive ? 2.5 : 1.8} />
+                  <span className="text-xs tracking-widest uppercase font-medium">
                     {item.label}
                   </span>
                 </button>
@@ -62,7 +63,7 @@ export default function TopNav({ active, setActive }: { active: string, setActiv
                 rotate: isOpen ? 45 : 0,
                 y: isOpen ? 5 : 0,
               }}
-              className="block h-[2px] bg-white rounded-full w-full origin-center transition-all"
+              className="block h-[2px] bg-[#fbf1de] rounded-full w-full origin-center transition-all"
             />
             <motion.span
               animate={{
@@ -70,7 +71,7 @@ export default function TopNav({ active, setActive }: { active: string, setActiv
                 y: isOpen ? -5 : 0,
                 width: isOpen ? "100%" : "70%"
               }}
-              className="block h-[2px] bg-white rounded-full origin-center transition-all"
+              className="block h-[2px] bg-[#fbf1de] rounded-full origin-center transition-all"
             />
           </button>
         </div>
@@ -83,9 +84,9 @@ export default function TopNav({ active, setActive }: { active: string, setActiv
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ type: "spring", stiffness: 300, damping: 30 }}
-            className="fixed inset-0 z-40 bg-black backdrop-blur-xl flex flex-col items-center justify-center pt-20 md:hidden"
+            className="fixed inset-0 z-40 bg-[#7d0d1f]/98 backdrop-blur-2xl flex flex-col items-center justify-center pt-20 md:hidden"
           >
-            <div className="flex flex-col space-y-8 items-center">
+            <div className="flex flex-col space-y-6 items-center">
               {navItems.map((item) => {
                 const Icon = item.icon;
                 const isActive = active === item.id;
@@ -100,10 +101,10 @@ export default function TopNav({ active, setActive }: { active: string, setActiv
                     whileTap={{ scale: 0.95 }}
                     className="group relative flex flex-col items-center"
                   >
-                    <div className={`p-4 rounded-full transition-colors ${isActive ? 'bg-[#e6e2d8] text-zinc-900 shadow-sm' : 'bg-transparent text-zinc-500 hover:text-zinc-900'}`}>
-                      <Icon size={32} strokeWidth={isActive ? 2 : 1.5} />
+                    <div className={`p-4 rounded-full transition-colors ${isActive ? 'bg-[#d3a24a] text-[#7d0d1f] shadow-lg' : 'bg-white/10 text-[#fbf1de] hover:bg-white/20'}`}>
+                      <Icon size={28} strokeWidth={isActive ? 2.5 : 1.8} />
                     </div>
-                    <span className={`mt-3 text-sm font-medium tracking-widest uppercase transition-colors ${isActive ? 'text-zinc-900' : 'text-zinc-500 group-hover:text-zinc-900'}`}>
+                    <span className={`mt-2.5 text-xs font-semibold tracking-widest uppercase transition-colors ${isActive ? 'text-[#d3a24a]' : 'text-[#fbf1de]/80'}`}>
                       {item.label}
                     </span>
                   </motion.button>

@@ -5,55 +5,20 @@ import Image from "next/image";
 
 export default function Biography() {
   return (
-    <div className="w-full min-h-screen pt-28 pb-20 px-6 bg-transparent text-zinc-200">
+    <div className="w-full min-h-screen pt-16 pb-20 px-6 bg-transparent text-[#241611]">
       <div className="max-w-4xl mx-auto space-y-16">
         
-        {/* Hero Header */}
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="flex flex-col items-center text-center space-y-6"
-        >
-          {/* Portrait with Circle Age Badge */}
-          <div className="relative group">
-            <div className="relative w-48 h-48 sm:w-60 sm:h-60 rounded-full overflow-hidden border-4 border-[#FFE9B3]/40 shadow-2xl ring-8 ring-zinc-900/80">
-              <Image
-                src="/gallery/image2.png"
-                alt="Deaconess Love James"
-                fill
-                className="object-cover"
-                priority
-              />
-            </div>
+        {/* Section Divider */}
+        <div className="flex items-center justify-center space-x-4 opacity-40 pt-4">
+          <div className="h-[1px] w-16 bg-[#b5122c]" />
+          <div className="w-2 h-2 rounded-full bg-[#d3a24a]" />
+          <div className="h-[1px] w-16 bg-[#b5122c]" />
+        </div>
 
-            {/* Medium Circle Badge for Age Emphasis */}
-            <motion.div
-              initial={{ scale: 0 }}
-              animate={{ scale: 1 }}
-              transition={{ delay: 0.4, type: "spring", stiffness: 220, damping: 20 }}
-              className="absolute -bottom-2 -right-2 w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-zinc-950 border-2 border-[#FFE9B3] flex flex-col items-center justify-center shadow-2xl shadow-black ring-4 ring-black/40"
-            >
-              <span className="text-2xl sm:text-3xl font-serif font-bold text-[#FFE9B3] leading-none">
-                72
-              </span>
-              <span className="text-[10px] sm:text-xs font-sans font-medium uppercase tracking-widest text-zinc-400 mt-1">
-                Years
-              </span>
-            </motion.div>
-          </div>
-
-          <div className="space-y-2 pt-2">
-            <h1 className="text-4xl sm:text-5xl font-serif tracking-wide text-zinc-100 font-light">
-              Deaconess Love James
-            </h1>
-            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[#FFE9B3]">
-              1954 – 2026
-            </p>
-            <p className="text-zinc-400 font-serif italic text-lg sm:text-xl pt-2 max-w-xl mx-auto">
-              "She lived with grace, gave with love, and rested in faith."
-            </p>
-          </div>
+        {/* Section Title */}
+        <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} className="text-center">
+          <h1 className="text-4xl font-serif text-[#7d0d1f] tracking-wide font-normal mb-2">Her Life Story</h1>
+          <p className="text-[#55423b] text-sm">Biography of Late Deaconess Love James (1954 – 2026)</p>
         </motion.div>
 
         {/* Intro Banner */}
@@ -61,10 +26,10 @@ export default function Biography() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="bg-zinc-900/60 border border-zinc-800/80 p-8 rounded-3xl backdrop-blur-md shadow-2xl relative overflow-hidden"
+          className="bg-[#fffaf0] border border-[#d3a24a]/40 p-8 rounded-3xl backdrop-blur-md shadow-xl shadow-[#241611]/5 relative overflow-hidden"
         >
-          <div className="absolute top-0 right-0 w-64 h-64 bg-[#FFE9B3]/5 rounded-full blur-3xl pointer-events-none" />
-          <p className="text-zinc-300 font-serif text-lg leading-relaxed first-letter:text-4xl first-letter:font-semibold first-letter:text-[#FFE9B3] first-letter:mr-2 first-letter:float-left">
+          <div className="absolute top-0 right-0 w-64 h-64 bg-[#b5122c]/5 rounded-full blur-3xl pointer-events-none" />
+          <p className="text-[#241611] font-serif text-lg leading-relaxed first-letter:text-4xl first-letter:font-semibold first-letter:text-[#b5122c] first-letter:mr-2 first-letter:float-left">
             There are lives that leave a mark so deep that even silence speaks of them. Deaconess Love James was such a life — a woman of extraordinary warmth, quiet strength, and unshakeable faith. To know her was to encounter love in its most selfless form, felt in every meal cooked with care, every hymn sung at dawn, and every door held open to a soul in need. She was mother, farmer, deaconess, provider, and friend — the first daughter of her father's house, carrying that position not as a title but as a calling. She leaves behind five children, grandchildren, siblings, and a family stretched across Ozuzu and Ukanafun, all richer for having known her. This biography is a small monument to a large life.
           </p>
         </motion.div>
@@ -114,13 +79,13 @@ export default function Biography() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.6 }}
-              className="border-l-2 border-[#FFE9B3]/30 pl-6 sm:pl-8 space-y-3"
+              className="border-l-2 border-[#b5122c]/40 pl-6 sm:pl-8 space-y-3"
             >
-              <h2 className="text-2xl font-serif font-semibold text-[#FFE9B3]">
+              <h2 className="text-2xl font-serif font-semibold text-[#b5122c]">
                 {chapter.title}
               </h2>
               {chapter.content.split("\n\n").map((para, pIdx) => (
-                <p key={pIdx} className="text-zinc-300 leading-relaxed font-light text-base sm:text-lg">
+                <p key={pIdx} className="text-[#55423b] leading-relaxed font-normal text-base sm:text-lg">
                   {para}
                 </p>
               ))}
@@ -133,19 +98,19 @@ export default function Biography() {
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
-          className="bg-zinc-900/80 border border-zinc-800 p-8 rounded-2xl text-center space-y-4"
+          className="bg-[#7d0d1f] text-[#fffaf0] border border-[#d3a24a]/50 p-8 rounded-3xl text-center space-y-4 shadow-xl shadow-[#241611]/10"
         >
-          <p className="font-serif italic text-lg text-zinc-300">
+          <p className="font-serif italic text-lg sm:text-xl text-[#fbf1de]">
             “I have fought a good fight, I have finished my course, I have kept the faith.”
           </p>
-          <span className="block text-xs uppercase tracking-widest text-zinc-500 font-sans">
+          <span className="block text-xs uppercase tracking-widest text-[#eecf8f] font-sans font-semibold">
             2 Timothy 4:7
           </span>
-          <div className="pt-4 border-t border-zinc-800/80">
-            <p className="font-serif text-amber-200/90 text-lg">
+          <div className="pt-4 border-t border-[#d3a24a]/30">
+            <p className="font-serif text-[#eecf8f] text-lg font-medium">
               “Chukwu gozie gi, duzie gi, chebe gi. Mee ka ihu Ya nwuakwasi gi”
             </p>
-            <p className="text-xs text-zinc-400 mt-1">
+            <p className="text-xs text-[#fbf1de]/80 mt-1">
               May God bless you, guide you, keep you. The Lord makes His face shine on you. — Rest in perfect peace.
             </p>
           </div>
@@ -156,36 +121,36 @@ export default function Biography() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="bg-zinc-900/40 border border-zinc-800/80 p-8 rounded-3xl space-y-8"
+          className="bg-[#fffaf0] border border-[#d3a24a]/40 p-8 rounded-3xl space-y-8 shadow-xl shadow-[#241611]/5"
         >
-          <h2 className="text-3xl font-serif text-zinc-100 text-center font-light">
+          <h2 className="text-3xl font-serif text-[#7d0d1f] text-center font-normal">
             She Is Survived By
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-sm">
             <div>
-              <h3 className="text-[#FFE9B3] font-semibold uppercase tracking-wider mb-3 text-xs">Children</h3>
-              <ul className="space-y-1.5 text-zinc-300">
-                <li><strong className="text-zinc-100">Mr. Israel Onukufor Chioma</strong> (Son)</li>
-                <li><strong className="text-zinc-100">Eld. Engr. Godwin James</strong> (Son)</li>
-                <li><strong className="text-zinc-100">Shepherdess Patience Nwoko</strong> (Daughter)</li>
-                <li><strong className="text-zinc-100">Engr. Thankgod Imoh James</strong> (Son)</li>
-                <li><strong className="text-zinc-100">Engr. Godspower James</strong> (Son)</li>
+              <h3 className="text-[#b5122c] font-semibold uppercase tracking-wider mb-3 text-xs border-b border-[#b5122c]/20 pb-1">Children</h3>
+              <ul className="space-y-1.5 text-[#55423b]">
+                <li><strong className="text-[#241611]">Mr. Israel Onukufor Chioma</strong> (Son)</li>
+                <li><strong className="text-[#241611]">Eld. Engr. Godwin James</strong> (Son)</li>
+                <li><strong className="text-[#241611]">Shepherdess Patience Nwoko</strong> (Daughter)</li>
+                <li><strong className="text-[#241611]">Engr. Thankgod Imoh James</strong> (Son)</li>
+                <li><strong className="text-[#241611]">Engr. Godspower James</strong> (Son)</li>
               </ul>
             </div>
 
             <div>
-              <h3 className="text-[#FFE9B3] font-semibold uppercase tracking-wider mb-3 text-xs">In-Laws</h3>
-              <ul className="space-y-1.5 text-zinc-300">
-                <li><strong className="text-zinc-100">Mrs. Deborah Israel</strong> (Daughter-in-law)</li>
-                <li><strong className="text-zinc-100">Mrs. Chiamaka James</strong> (Daughter-in-law)</li>
-                <li><strong className="text-zinc-100">Pastor Ernest Nwoko</strong> (Son-in-law)</li>
+              <h3 className="text-[#b5122c] font-semibold uppercase tracking-wider mb-3 text-xs border-b border-[#b5122c]/20 pb-1">In-Laws</h3>
+              <ul className="space-y-1.5 text-[#55423b]">
+                <li><strong className="text-[#241611]">Mrs. Deborah Israel</strong> (Daughter-in-law)</li>
+                <li><strong className="text-[#241611]">Mrs. Chiamaka James</strong> (Daughter-in-law)</li>
+                <li><strong className="text-[#241611]">Pastor Ernest Nwoko</strong> (Son-in-law)</li>
               </ul>
             </div>
 
             <div>
-              <h3 className="text-[#FFE9B3] font-semibold uppercase tracking-wider mb-3 text-xs">Grandchildren</h3>
-              <ul className="space-y-1.5 text-zinc-300">
+              <h3 className="text-[#b5122c] font-semibold uppercase tracking-wider mb-3 text-xs border-b border-[#b5122c]/20 pb-1">Grandchildren</h3>
+              <ul className="space-y-1.5 text-[#55423b]">
                 <li>Miss Chinaza Israel</li>
                 <li>Master Joshua Israel</li>
                 <li>Master Caleb Israel</li>
@@ -195,8 +160,8 @@ export default function Biography() {
             </div>
 
             <div>
-              <h3 className="text-[#FFE9B3] font-semibold uppercase tracking-wider mb-3 text-xs">Brothers & Sisters</h3>
-              <ul className="space-y-1.5 text-zinc-300">
+              <h3 className="text-[#b5122c] font-semibold uppercase tracking-wider mb-3 text-xs border-b border-[#b5122c]/20 pb-1">Brothers & Sisters</h3>
+              <ul className="space-y-1.5 text-[#55423b]">
                 <li>Sir Chris Nnamdi Chioma (Brother)</li>
                 <li>Mr. Nnodim Chioma (Brother)</li>
                 <li>Mrs. Ego Chioma (Sister)</li>
@@ -207,29 +172,8 @@ export default function Biography() {
             </div>
           </div>
 
-          <p className="text-center text-zinc-500 text-xs italic pt-4 border-t border-zinc-800/60">
+          <p className="text-center text-[#55423b]/70 text-xs italic pt-4 border-t border-[#d3a24a]/30">
             …and nephews, nieces and many other relatives and sympathizers mourning her demise.
-          </p>
-        </motion.div>
-
-        {/* Appreciation Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="bg-[#FFE9B3]/5 border border-[#FFE9B3]/20 p-8 rounded-3xl text-center space-y-4"
-        >
-          <h2 className="text-2xl font-serif text-[#FFE9B3] font-semibold">
-            Appreciation
-          </h2>
-          <p className="text-zinc-300 font-light text-sm sm:text-base leading-relaxed max-w-2xl mx-auto">
-            The family of our beloved mother wishes to express our heartfelt gratitude to all relatives, friends, neighbours, church members, colleagues, and well-wishers for the love, prayers, visits, messages, financial support, and various acts of kindness shown to us during this period of bereavement.
-          </p>
-          <p className="text-zinc-400 font-light text-xs sm:text-sm leading-relaxed max-w-2xl mx-auto">
-            Your compassion, encouragement, and support have been a great source of comfort and strength to us. We are deeply touched by your presence and the sacrifices you have made to mourn and celebrate her life with us.
-          </p>
-          <p className="text-[#FFE9B3] font-serif text-sm font-medium pt-2">
-            — Godwin James, for the Family
           </p>
         </motion.div>
 

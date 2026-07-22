@@ -157,19 +157,26 @@ export default function Tributes() {
   };
 
   return (
-    <div className="w-full min-h-screen pt-28 pb-20 px-6 bg-transparent text-zinc-200">
+    <div className="w-full min-h-screen pt-16 pb-20 px-6 bg-transparent text-[#241611]">
       <div className="max-w-6xl mx-auto space-y-16">
         
+        {/* Section Divider */}
+        <div className="flex items-center justify-center space-x-4 opacity-40 pt-4">
+          <div className="h-[1px] w-16 bg-[#b5122c]" />
+          <div className="w-2 h-2 rounded-full bg-[#d3a24a]" />
+          <div className="h-[1px] w-16 bg-[#b5122c]" />
+        </div>
+
         {/* Header */}
         <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} className="text-center space-y-2">
-          <h1 className="text-4xl font-serif text-zinc-100 tracking-wide font-light">Words From Those Who Loved Her</h1>
-          <p className="text-zinc-400 text-sm">Tributes & Condolences for Late Deaconess Love James</p>
+          <h1 className="text-4xl font-serif text-[#7d0d1f] tracking-wide font-normal">Words From Those Who Loved Her</h1>
+          <p className="text-[#55423b] text-sm">Tributes & Condolences for Late Deaconess Love James</p>
         </motion.div>
 
         {/* Featured Family Tributes */}
         <div className="space-y-6">
-          <h2 className="text-[#FFE9B3] font-serif text-xl font-semibold flex items-center space-x-2">
-            <Heart size={20} className="text-[#FFE9B3]" />
+          <h2 className="text-[#b5122c] font-serif text-xl font-semibold flex items-center space-x-2 border-b border-[#b5122c]/20 pb-2">
+            <Heart size={20} className="text-[#b5122c]" />
             <span>Family Tributes</span>
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -179,16 +186,15 @@ export default function Tributes() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="bg-zinc-900/60 border border-zinc-800/80 p-8 rounded-3xl space-y-4 relative overflow-hidden"
+                className="bg-[#fffaf0] border border-[#d3a24a]/40 p-8 rounded-3xl space-y-4 relative overflow-hidden shadow-xl shadow-[#241611]/5"
               >
-                <div className="absolute top-0 right-0 w-32 h-32 bg-[#FFE9B3]/5 rounded-full blur-2xl pointer-events-none" />
-                <h3 className="text-[#FFE9B3] font-serif text-lg font-medium">{trib.title}</h3>
-                <p className="text-zinc-300 font-serif italic text-sm sm:text-base leading-relaxed">
+                <h3 className="text-[#7d0d1f] font-serif text-lg font-semibold">{trib.title}</h3>
+                <p className="text-[#55423b] font-serif italic text-sm sm:text-base leading-relaxed">
                   "{trib.message}"
                 </p>
-                <div className="pt-3 border-t border-zinc-800/60">
-                  <p className="text-zinc-100 font-medium text-xs sm:text-sm">{trib.author}</p>
-                  <p className="text-zinc-500 text-xs">{trib.role}</p>
+                <div className="pt-3 border-t border-[#d3a24a]/30">
+                  <p className="text-[#241611] font-semibold text-xs sm:text-sm">{trib.author}</p>
+                  <p className="text-[#b5122c] text-xs font-medium">{trib.role}</p>
                 </div>
               </motion.div>
             ))}
@@ -200,43 +206,43 @@ export default function Tributes() {
           
           {/* Form */}
           <div className="w-full lg:w-1/3 lg:sticky lg:top-32">
-            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="bg-zinc-900/40 border border-zinc-800/80 rounded-2xl p-6 shadow-xl backdrop-blur-md">
-              <h2 className="text-xl font-serif text-zinc-100 mb-2">Leave a Tribute</h2>
-              <p className="text-xs text-zinc-400 mb-6">Every message shared here stays on this page for all to read.</p>
+            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="bg-[#fffaf0] border border-[#d3a24a]/40 rounded-3xl p-6 shadow-xl shadow-[#241611]/5">
+              <h2 className="text-xl font-serif text-[#7d0d1f] font-semibold mb-1">Leave a Tribute</h2>
+              <p className="text-xs text-[#55423b] mb-6">Every message shared here stays on this page for all to read.</p>
 
               <form onSubmit={handleSubmit} className="space-y-5">
                 <div>
-                  <label htmlFor="name" className="block text-xs font-medium text-zinc-400 uppercase tracking-widest mb-2">Name *</label>
+                  <label htmlFor="name" className="block text-xs font-semibold text-[#7d0d1f] uppercase tracking-widest mb-2">Name *</label>
                   <input
                     type="text"
                     id="name"
                     required
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="w-full bg-zinc-900/50 border border-zinc-800 rounded-xl px-4 py-3.5 text-zinc-200 text-sm focus:outline-none focus:border-zinc-500 transition-colors placeholder:text-zinc-700"
+                    className="w-full bg-[#fbf1de]/60 border border-[#d3a24a]/40 rounded-xl px-4 py-3.5 text-[#241611] text-sm focus:outline-none focus:border-[#b5122c] focus:ring-1 focus:ring-[#b5122c] transition-colors placeholder:text-[#55423b]/50"
                     placeholder="Your name"
                   />
                 </div>
                 <div>
-                  <label htmlFor="relationship" className="block text-xs font-medium text-zinc-400 uppercase tracking-widest mb-2">Relationship</label>
+                  <label htmlFor="relationship" className="block text-xs font-semibold text-[#7d0d1f] uppercase tracking-widest mb-2">Relationship</label>
                   <input
                     type="text"
                     id="relationship"
                     value={formData.relationship}
                     onChange={(e) => setFormData({ ...formData, relationship: e.target.value })}
-                    className="w-full bg-zinc-900/50 border border-zinc-800 rounded-xl px-4 py-3.5 text-zinc-200 text-sm focus:outline-none focus:border-zinc-500 transition-colors placeholder:text-zinc-700"
+                    className="w-full bg-[#fbf1de]/60 border border-[#d3a24a]/40 rounded-xl px-4 py-3.5 text-[#241611] text-sm focus:outline-none focus:border-[#b5122c] focus:ring-1 focus:ring-[#b5122c] transition-colors placeholder:text-[#55423b]/50"
                     placeholder="Friend, Colleague, Family..."
                   />
                 </div>
                 <div>
-                  <label htmlFor="message" className="block text-xs font-medium text-zinc-400 uppercase tracking-widest mb-2">Message *</label>
+                  <label htmlFor="message" className="block text-xs font-semibold text-[#7d0d1f] uppercase tracking-widest mb-2">Message *</label>
                   <textarea
                     id="message"
                     required
                     rows={4}
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className="w-full bg-zinc-900/50 border border-zinc-800 rounded-xl px-4 py-3.5 text-zinc-200 text-sm focus:outline-none focus:border-zinc-500 transition-colors placeholder:text-zinc-700 resize-none"
+                    className="w-full bg-[#fbf1de]/60 border border-[#d3a24a]/40 rounded-xl px-4 py-3.5 text-[#241611] text-sm focus:outline-none focus:border-[#b5122c] focus:ring-1 focus:ring-[#b5122c] transition-colors placeholder:text-[#55423b]/50 resize-none"
                     placeholder="Write your tribute here..."
                   />
                 </div>
@@ -244,16 +250,16 @@ export default function Tributes() {
                 <button
                   type="submit"
                   disabled={isSubmitting || isSuccess}
-                  className="w-full relative flex items-center justify-center bg-zinc-100 hover:bg-white text-zinc-900 font-medium py-3.5 rounded-xl transition-all disabled:opacity-70 mt-4"
+                  className="w-full relative flex items-center justify-center bg-[#b5122c] hover:bg-[#7d0d1f] text-[#fffaf0] font-semibold py-3.5 rounded-xl transition-all shadow-md shadow-[#b5122c]/20 disabled:opacity-70 mt-4"
                 >
                   <AnimatePresence mode="wait">
                     {isSubmitting ? (
                       <motion.div key="submitting" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="flex items-center space-x-2">
-                        <Loader2 size={18} className="animate-spin text-zinc-600" />
+                        <Loader2 size={18} className="animate-spin text-[#fffaf0]" />
                         <span>Sending...</span>
                       </motion.div>
                     ) : isSuccess ? (
-                      <motion.div key="success" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="flex items-center space-x-2 text-green-700">
+                      <motion.div key="success" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="flex items-center space-x-2 text-[#eecf8f]">
                         <CheckCircle2 size={18} />
                         <span>Tribute Sent</span>
                       </motion.div>
@@ -270,18 +276,18 @@ export default function Tributes() {
 
           {/* Feed */}
           <div className="w-full lg:w-2/3">
-            <h2 className="text-xl font-serif text-zinc-100 mb-6">Tribute Wall ({tributes.length})</h2>
+            <h2 className="text-xl font-serif text-[#7d0d1f] font-semibold mb-6">Tribute Wall ({tributes.length})</h2>
             <motion.div variants={containerVariants} initial="hidden" animate="show" className="space-y-6">
               {tributes.map((tribute) => (
-                <motion.div key={tribute.id} variants={cardVariants} className="bg-zinc-900/30 border border-zinc-800/60 rounded-2xl p-6 relative overflow-hidden">
+                <motion.div key={tribute.id} variants={cardVariants} className="bg-[#fffaf0] border border-[#d3a24a]/30 rounded-2xl p-6 shadow-sm">
                   <div className="flex justify-between items-start mb-3">
                     <div>
-                      <h3 className="text-zinc-200 font-medium text-base">{tribute.name}</h3>
-                      {tribute.relationship && <p className="text-[#FFE9B3] text-xs mt-0.5 uppercase tracking-wider">{tribute.relationship}</p>}
+                      <h3 className="text-[#241611] font-semibold text-base">{tribute.name}</h3>
+                      {tribute.relationship && <p className="text-[#b5122c] text-xs mt-0.5 font-semibold uppercase tracking-wider">{tribute.relationship}</p>}
                     </div>
-                    <span className="text-zinc-500 text-xs">{tribute.date}</span>
+                    <span className="text-[#55423b] text-xs">{tribute.date}</span>
                   </div>
-                  <p className="text-zinc-300 text-sm leading-relaxed font-light font-serif italic">"{tribute.message}"</p>
+                  <p className="text-[#55423b] text-sm leading-relaxed font-normal font-serif italic">"{tribute.message}"</p>
                 </motion.div>
               ))}
             </motion.div>
