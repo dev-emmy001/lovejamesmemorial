@@ -6,7 +6,7 @@ export default function Appreciation() {
   return (
     <div className="w-full pt-12 pb-24 px-6 bg-transparent text-[#241611]">
       <div className="max-w-4xl mx-auto space-y-8">
-        
+
         {/* Section Divider */}
         <div className="flex items-center justify-center space-x-4 opacity-40 pb-4">
           <div className="h-[1px] w-16 bg-[#b5122c]" />
@@ -19,7 +19,7 @@ export default function Appreciation() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="bg-[#7d0d1f]/5 border border-[#b5122c]/30 p-8 sm:p-10 rounded-3xl text-center space-y-4 shadow-md shadow-[#241611]/5"
+          className="bg-white border border-[#b5122c]/30 p-8 sm:p-10 rounded-3xl text-center space-y-4 shadow-md shadow-[#241611]/5"
         >
           <h2 className="text-3xl font-serif text-[#7d0d1f] font-semibold">
             Appreciation
