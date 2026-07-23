@@ -130,9 +130,9 @@ export default function Program() {
   const [activeHymn, setActiveHymn] = useState<number | null>(null);
 
   return (
-    <div className="w-full min-h-screen pt-16 pb-20 px-6 bg-transparent text-[#241611]">
-      <div className="max-w-4xl mx-auto space-y-16">
-        
+    <div className="w-full min-h-screen pt-16 pb-0 bg-transparent text-[#241611]">
+      <div className="max-w-4xl mx-auto space-y-16 px-4 sm:px-6 pb-16">
+
         {/* Section Divider */}
         <div className="flex items-center justify-center space-x-4 opacity-40 pt-4">
           <div className="h-[1px] w-16 bg-[#b5122c]" />
@@ -154,7 +154,7 @@ export default function Program() {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {scheduleEvents.map((evt, idx) => (
-              <div key={idx} className="bg-[#fffaf0] border border-[#d3a24a]/40 p-5 rounded-2xl shadow-md shadow-[#241611]/5">
+              <div key={idx} className="bg-white border border-[#d3a24a]/40 p-5 rounded-2xl shadow-md shadow-[#241611]/5">
                 <h3 className="text-[#7d0d1f] font-semibold text-base mb-1">{evt.title}</h3>
                 <p className="text-[#b5122c] text-xs font-semibold uppercase tracking-wider mb-2">{evt.date}</p>
                 <p className="text-[#55423b] text-xs">{evt.location}</p>
@@ -163,19 +163,52 @@ export default function Program() {
           </div>
         </div>
 
-        {/* Officiating Ministers */}
-        <div className="space-y-4">
-          <h2 className="text-[#b5122c] font-serif text-xl font-semibold flex items-center space-x-2 border-b border-[#b5122c]/20 pb-2">
-            <UserCheck size={20} className="text-[#b5122c]" />
-            <span>Officiating Ministers</span>
-          </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            {ministers.map((min, idx) => (
-              <div key={idx} className="bg-[#fffaf0] border border-[#d3a24a]/30 p-4 rounded-xl shadow-sm">
-                <p className="text-[#241611] text-sm font-semibold">{min.name}</p>
-                <p className="text-[#55423b] text-xs">{min.title}</p>
+        {/* Officiating Ministers & Music Ministry */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {/* Officiating Ministers Single Box */}
+          <div className="bg-white border border-[#d3a24a]/40 p-6 rounded-2xl shadow-md shadow-[#241611]/5 flex flex-col justify-between">
+            <div>
+              <h2 className="text-[#b5122c] font-serif text-xl font-semibold flex items-center space-x-2 border-b border-[#d3a24a]/30 pb-3 mb-4">
+                <UserCheck size={20} className="text-[#b5122c]" />
+                <span>Officiating Ministers</span>
+              </h2>
+              <div className="divide-y divide-[#d3a24a]/20">
+                {ministers.map((min, idx) => (
+                  <div key={idx} className="py-2.5 first:pt-0 last:pb-0">
+                    <p className="text-[#241611] text-sm font-bold">{min.name}</p>
+                    <p className="text-[#55423b] text-xs leading-snug">{min.title}</p>
+                  </div>
+                ))}
               </div>
-            ))}
+            </div>
+          </div>
+
+          {/* Music Ministry Single Box */}
+          <div className="bg-white border border-[#d3a24a]/40 p-6 rounded-2xl shadow-md shadow-[#241611]/5 flex flex-col justify-between">
+            <div>
+              <h2 className="text-[#b5122c] font-serif text-xl font-semibold flex items-center space-x-2 border-b border-[#d3a24a]/30 pb-3 mb-4">
+                <Music size={20} className="text-[#b5122c]" />
+                <span>Music Ministry</span>
+              </h2>
+              <div className="space-y-4">
+                <div className="pb-3 border-b border-[#d3a24a]/20">
+                  <p className="text-[#7d0d1f] font-bold text-xs uppercase tracking-wider mb-1">Song Leaders</p>
+                  <p className="text-[#241611] text-xs sm:text-sm leading-relaxed">Akachukwu Eke, Godson Chibueze, Choir Leaders/Designates</p>
+                </div>
+                <div className="pb-3 border-b border-[#d3a24a]/20">
+                  <p className="text-[#7d0d1f] font-bold text-xs uppercase tracking-wider mb-1">Organists</p>
+                  <p className="text-[#241611] text-xs sm:text-sm leading-relaxed">Engr. Precious Amaugo, Lucky Walson</p>
+                </div>
+                <div className="pb-3 border-b border-[#d3a24a]/20">
+                  <p className="text-[#7d0d1f] font-bold text-xs uppercase tracking-wider mb-1">Choirs</p>
+                  <p className="text-[#241611] text-xs sm:text-sm leading-relaxed">Oro-Evo District Choir, Degema District Choir, Light House Choir</p>
+                </div>
+                <div className="pt-0.5">
+                  <p className="text-[#7d0d1f] font-bold text-xs uppercase tracking-wider mb-1">Soloists</p>
+                  <p className="text-[#241611] text-xs sm:text-sm leading-relaxed">Akachukwu Eke, Nathan David Adiele</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -219,13 +252,16 @@ export default function Program() {
           ))}
         </div>
 
-        {/* Hymns Section */}
-        <div className="space-y-6 pt-6 border-t border-[#b5122c]/20">
-          <div className="flex items-center space-x-3">
-            <Music className="text-[#b5122c]" size={24} />
+      </div>
+
+      {/* Full Width Hymns Section */}
+      <div className="w-full bg-gradient-to-b from-[#180a08] via-[#120504] to-[#0a0202] text-[#fbf1de] py-16 px-4 sm:px-6 lg:px-8 border-t border-[#d3a24a]/30 shadow-2xl mt-12">
+        <div className="max-w-4xl mx-auto space-y-8">
+          <div className="flex items-center space-x-3.5 border-b border-[#d3a24a]/30 pb-4">
+            <Music className="text-[#d3a24a]" size={28} />
             <div>
-              <h2 className="text-2xl font-serif text-[#7d0d1f] font-semibold">Sung In Her Honour — Hymns</h2>
-              <p className="text-xs text-[#55423b]">Tap any hymn to view its complete lyrics</p>
+              <h2 className="text-2xl sm:text-3xl font-serif text-[#eecf8f] font-bold tracking-wide">Sung In Her Honour — Hymns</h2>
+              <p className="text-xs sm:text-sm text-[#ded0be]/80 mt-0.5">Tap any hymn to view its complete lyrics</p>
             </div>
           </div>
 
@@ -233,22 +269,26 @@ export default function Program() {
             {hymns.map((hymn, idx) => {
               const isOpen = activeHymn === idx;
               return (
-                <div key={idx} className="bg-[#fffaf0] border border-[#d3a24a]/40 rounded-2xl overflow-hidden shadow-sm">
+                <div key={idx} className="bg-[#22100d] border border-[#d3a24a]/40 rounded-2xl overflow-hidden shadow-xl hover:border-[#d3a24a]/70 transition-all duration-200">
                   <button
                     onClick={() => setActiveHymn(isOpen ? null : idx)}
-                    className="w-full p-5 flex items-center justify-between text-left hover:bg-[#7d0d1f]/5 transition-colors"
+                    className="w-full p-5 sm:p-6 flex items-center justify-between text-left hover:bg-white/5 transition-colors cursor-pointer"
                   >
-                    <div>
-                      <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#b5122c]">{hymn.code}</span>
-                      <h3 className="text-lg font-serif text-[#241611] font-medium">{hymn.title}</h3>
+                    <div className="space-y-1">
+                      <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#d3a24a]">{hymn.code}</span>
+                      <h3 className="text-xl sm:text-2xl font-serif text-white font-bold tracking-wide">{hymn.title}</h3>
                     </div>
-                    <ChevronDown className={`text-[#7d0d1f] transition-transform ${isOpen ? "rotate-180" : ""}`} size={20} />
+                    <ChevronDown className={`text-[#d3a24a] transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`} size={24} />
                   </button>
 
                   {isOpen && (
-                    <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }} className="px-5 pb-6 pt-2 space-y-4 border-t border-[#d3a24a]/20 bg-[#7d0d1f]/5">
+                    <motion.div
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: "auto" }}
+                      className="px-6 pb-6 pt-3 space-y-4 border-t border-[#d3a24a]/20 bg-[#140605]"
+                    >
                       {hymn.verses.map((verse, vIdx) => (
-                        <p key={vIdx} className="text-[#55423b] text-sm font-serif italic whitespace-pre-line leading-relaxed">
+                        <p key={vIdx} className="text-[#fbf1de] text-base sm:text-lg font-serif leading-relaxed whitespace-pre-line">
                           {verse}
                         </p>
                       ))}
@@ -259,7 +299,6 @@ export default function Program() {
             })}
           </div>
         </div>
-
       </div>
     </div>
   );
