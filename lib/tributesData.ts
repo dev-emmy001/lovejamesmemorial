@@ -76,7 +76,7 @@ export const staticTributesData: StaticTribute[] = [
     "id": "family-12",
     "name": "Pastor Earnest Nwoko",
     "relationship": "Tribute to Our Beloved Mother",
-    "message": "Ma M&egrave;re weren't just a mother-in-law; she was a second mother, a confidante, and my greatest cheerleader — that's why I call her ma m&egrave;re. Each time I return from ministerial assignment, she hears my voice, even on her sick bed she starts smiling.\n\nMa M&egrave;re welcomed me with open arms and loved me as her own son. I am endlessly grateful for the remarkable woman you raised, and the even more amazing grandmother you were. Our family wouldn't be the same without your shining light.\n\nThank you for your endless patience, your wise counsel, and the unconditional love you showed me from day one. You will forever hold a special place in my heart."
+    "message": "Ma'Mere weren't just a mother-in-law; she was a second mother, a confidante, and my greatest cheerleader — that's why I call her Ma'Mere. Each time I return from ministerial assignment, she hears my voice, even on her sick bed she starts smiling.\n\nMa'Mere welcomed me with open arms and loved me as her own son. I am endlessly grateful for the remarkable woman you raised, and the even more amazing grandmother you were. Our family wouldn't be the same without your shining light.\n\nThank you for your endless patience, your wise counsel, and the unconditional love you showed me from day one. You will forever hold a special place in my heart."
   },
   {
     "id": "family-13",
