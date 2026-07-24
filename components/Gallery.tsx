@@ -5,21 +5,45 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, ExternalLink, Image as ImageIcon, FolderOpen } from "lucide-react";
 
-// 20 Photo items: 1-3 use real gallery images, 4-20 are placeholders
-const galleryImages = Array.from({ length: 20 }, (_, i) => {
-  const num = i + 1;
-  let src = "";
-  if (num === 1) src = "/gallery/image 1.png";
-  else if (num === 2) src = "/gallery/image2.png";
-  else if (num === 3) src = "/gallery/image 3.png";
+// 29 Photo items from public/gallery
+const galleryImageFiles = [
+  "/gallery/image 1.png",
+  "/gallery/image2.png",
+  "/gallery/image 3.png",
+  "/gallery/WhatsApp Image 2026-07-23 at 21.22.10.jpeg",
+  "/gallery/WhatsApp Image 2026-07-23 at 21.22.10 (1).jpeg",
+  "/gallery/WhatsApp Image 2026-07-23 at 21.22.10 (2).jpeg",
+  "/gallery/WhatsApp Image 2026-07-23 at 21.22.10 (3).jpeg",
+  "/gallery/WhatsApp Image 2026-07-23 at 21.22.10 (4).jpeg",
+  "/gallery/WhatsApp Image 2026-07-23 at 21.22.10 (5).jpeg",
+  "/gallery/WhatsApp Image 2026-07-23 at 21.22.10 (6).jpeg",
+  "/gallery/WhatsApp Image 2026-07-23 at 21.22.10 (7).jpeg",
+  "/gallery/WhatsApp Image 2026-07-23 at 21.22.10 (8).jpeg",
+  "/gallery/WhatsApp Image 2026-07-23 at 21.22.10 (9).jpeg",
+  "/gallery/WhatsApp Image 2026-07-23 at 21.22.11.jpeg",
+  "/gallery/WhatsApp Image 2026-07-23 at 21.22.11 (1).jpeg",
+  "/gallery/WhatsApp Image 2026-07-23 at 21.22.11 (2).jpeg",
+  "/gallery/WhatsApp Image 2026-07-23 at 21.22.11 (3).jpeg",
+  "/gallery/WhatsApp Image 2026-07-23 at 21.22.11 (4).jpeg",
+  "/gallery/WhatsApp Image 2026-07-23 at 21.22.11 (5).jpeg",
+  "/gallery/WhatsApp Image 2026-07-23 at 21.22.11 (6).jpeg",
+  "/gallery/WhatsApp Image 2026-07-23 at 21.22.11 (7).jpeg",
+  "/gallery/WhatsApp Image 2026-07-23 at 21.22.11 (8).jpeg",
+  "/gallery/WhatsApp Image 2026-07-23 at 21.22.11 (9).jpeg",
+  "/gallery/WhatsApp Image 2026-07-23 at 21.22.11 (10).jpeg",
+  "/gallery/WhatsApp Image 2026-07-23 at 21.22.39.jpeg",
+  "/gallery/WhatsApp Image 2026-07-23 at 21.22.39 (1).jpeg",
+  "/gallery/WhatsApp Image 2026-07-23 at 21.22.39 (2).jpeg",
+  "/gallery/WhatsApp Image 2026-07-23 at 21.22.40.jpeg",
+  "/gallery/WhatsApp Image 2026-07-23 at 21.22.40 (1).jpeg",
+];
 
-  return {
-    id: num,
-    src: src,
-    title: `Photo Memory #${num}`,
-    isPlaceholder: !src
-  };
-});
+const galleryImages = galleryImageFiles.map((src, i) => ({
+  id: i + 1,
+  src: src,
+  title: `Photo Memory #${i + 1}`,
+  isPlaceholder: false
+}));
 
 // Google Drive Link URL (user can replace with exact drive folder link if needed)
 const GOOGLE_DRIVE_URL = "https://drive.google.com";

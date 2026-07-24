@@ -7,6 +7,7 @@ import Biography from "@/components/Biography";
 import Gallery from "@/components/Gallery";
 import Tributes from "@/components/Tributes";
 import Appreciation from "@/components/Appreciation";
+import Footer from "@/components/Footer";
 import { useState, useEffect } from "react";
 
 export default function Home() {
@@ -21,42 +22,46 @@ export default function Home() {
     <main className="relative min-h-screen bg-[#fbf1de] text-[#241611] flex flex-col selection:bg-[#b5122c] selection:text-[#fffaf0]">
       <TopNav active={activeTab} setActive={handleNavClick} />
 
-      {activeTab === "home" ? (
-        <div className="flex flex-col">
-          <Hero onNavigate={handleNavClick} />
-          <section id="program">
+      <div className="flex-1">
+        {activeTab === "home" ? (
+          <div className="flex flex-col">
+            <Hero onNavigate={handleNavClick} />
+            <section id="program">
+              <Program />
+            </section>
+            <section id="biography">
+              <Biography />
+            </section>
+            <section id="gallery">
+              <Gallery />
+            </section>
+            <section id="tributes">
+              <Tributes />
+            </section>
+            <section id="appreciation">
+              <Appreciation />
+            </section>
+          </div>
+        ) : activeTab === "program" ? (
+          <div className="pt-20">
             <Program />
-          </section>
-          <section id="biography">
+          </div>
+        ) : activeTab === "biography" ? (
+          <div className="pt-20">
             <Biography />
-          </section>
-          <section id="gallery">
+          </div>
+        ) : activeTab === "gallery" ? (
+          <div className="pt-20">
             <Gallery />
-          </section>
-          <section id="tributes">
+          </div>
+        ) : activeTab === "tributes" ? (
+          <div className="pt-20">
             <Tributes />
-          </section>
-          <section id="appreciation">
-            <Appreciation />
-          </section>
-        </div>
-      ) : activeTab === "program" ? (
-        <div className="pt-20">
-          <Program />
-        </div>
-      ) : activeTab === "biography" ? (
-        <div className="pt-20">
-          <Biography />
-        </div>
-      ) : activeTab === "gallery" ? (
-        <div className="pt-20">
-          <Gallery />
-        </div>
-      ) : activeTab === "tributes" ? (
-        <div className="pt-20">
-          <Tributes />
-        </div>
-      ) : null}
+          </div>
+        ) : null}
+      </div>
+
+      <Footer />
     </main>
   );
 }
