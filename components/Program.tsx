@@ -288,7 +288,7 @@ export default function Program() {
                       className="px-6 pb-6 pt-3 space-y-4 border-t border-[#d3a24a]/20 bg-[#140605]"
                     >
                       {hymn.verses.map((verse, vIdx) => (
-                        <p key={vIdx} className="text-[#fbf1de] text-base sm:text-lg font-serif leading-relaxed whitespace-pre-line">
+                        <p key={vIdx} className="text-[#fbf1de] text-base sm:text-lg leading-relaxed whitespace-pre-line">
                           {verse}
                         </p>
                       ))}
