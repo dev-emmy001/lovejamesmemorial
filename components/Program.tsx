@@ -37,6 +37,7 @@ const programData = [
       "Scripture Reading",
       "Opening Prayer",
       "Lying-in-State: Family / Villagers / Friends / Church / Ministers",
+      "Testimonies: SDA Oro-Evo District / Villagers / Prof Mathin Aniagboso (DVC of Madonna University)",
       "Special Song: Nathan David Adiele — 'Time to Say Goodbye'",
       "Biography: Engr. Imoh James (for the family)",
       "Special Song: Degema District Choir",
