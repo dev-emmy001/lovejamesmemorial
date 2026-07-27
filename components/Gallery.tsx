@@ -64,9 +64,9 @@ export default function Gallery() {
   }, [selectedImage]);
 
   return (
-    <div className="w-full min-h-screen bg-black text-[#fbf1de] py-16 px-4 sm:px-6 lg:px-8 border-t border-b border-[#d3a24a]/30 shadow-2xl">
+    <div className="w-full min-h-screen bg- text-black py-16 px-4 sm:px-6 lg:px-8 border-t border-b border-[#d3a24a]/30">
       <div className="max-w-7xl mx-auto space-y-12">
-        
+
         {/* Section Divider */}
         <div className="flex items-center justify-center space-x-4 opacity-40 pt-2">
           <div className="h-[1px] w-16 bg-[#b5122c]" />
@@ -80,8 +80,8 @@ export default function Gallery() {
           animate={{ opacity: 1, y: 0 }}
           className="text-center space-y-2"
         >
-          <h1 className="text-3xl sm:text-4xl font-serif text-[#eecf8f] tracking-wide font-normal">A Life In Pictures</h1>
-          <p className="text-[#ded0be]/80 text-sm">Photo Memories of Late Deaconess Love James</p>
+          <h1 className="text-3xl sm:text-4xl font-serif text-[#b5122c] tracking-wide font-normal">A Life In Pictures</h1>
+          <p className="text-black/80 text-sm">Photo Memories of Late Deaconess Love James</p>
         </motion.div>
 
         {/* 20 Photo Grid */}
@@ -134,14 +134,14 @@ export default function Gallery() {
           className="pt-6 text-center"
         >
           <a
-            href={GOOGLE_DRIVE_URL}
+            href="https://photos.app.goo.gl/hLBSa8ezEqbT9RVh9"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center space-x-3 bg-gradient-to-r from-[#b5122c] via-[#8f0e22] to-[#7d0d1f] hover:from-[#d91438] hover:to-[#961027] text-white font-serif font-semibold text-base sm:text-lg px-8 py-4 rounded-full shadow-2xl shadow-[#b5122c]/40 border border-[#d3a24a]/60 transition-all hover:scale-105 active:scale-95 cursor-pointer"
           >
             <FolderOpen size={22} className="text-[#eecf8f]" />
-            <span>View More Photos on Google Drive</span>
-            <ExternalLink size={18} className="text-[#eecf8f]" />
+            <span>View More Photos</span>
+            {/* <ExternalLink size={18} className="text-[#eecf8f]" /> */}
           </a>
         </motion.div>
 

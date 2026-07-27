@@ -32,11 +32,11 @@ export default function Home() {
             <section id="biography">
               <Biography />
             </section>
-            <section id="gallery">
-              <Gallery />
-            </section>
             <section id="tributes">
               <Tributes />
+            </section>
+            <section id="gallery">
+              <Gallery />
             </section>
             <section id="appreciation">
               <Appreciation />
